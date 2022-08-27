@@ -1,0 +1,29 @@
+<nav>
+  <mat-toolbar color="primary">
+      <mat-toolbar-row>
+          <button mat-button [routerLink]="['/']" routerLinkActive="accent">
+            Welcome
+          </button>
+          <span class="spacer"></span>
+          <button mat-button [routerLink]="['/faq']" routerLinkActive="accent">
+            FAQ
+        </button>
+          <button mat-button [routerLink]="['/about']" routerLinkActive="accent">
+              About
+          </button>
+          <button mat-button [routerLink]="['/contact']" routerLinkActive="accent">
+            Contact
+          </button>
+          <button mat-button [routerLink]="['/auth']" routerLinkActive="accent">
+            Login
+          </button>
+      </mat-toolbar-row>
+  </mat-toolbar>
+</nav>
+
+<div class="content" role="main">
+
+  <router-outlet></router-outlet>
+
+</div>
+
