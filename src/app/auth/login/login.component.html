@@ -1,0 +1,58 @@
+<div class="login-page">
+
+  <div class="content">
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+      <form [formGroup]="loginForm" (submit)="onLogin()" class="login-form"  *ngIf="!isLoading">
+          <div>
+              <h2 class="app-name">Login</h2>
+              <p class="subheading">Please input your email and password to gain access.</p>
+          </div>
+
+          <div>
+              <mat-form-field class="w-100">
+                <mat-label>Email</mat-label>
+                  <input matInput formControlName="email">
+                  <mat-error *ngIf="formControls['email'].errors">
+                    <div *ngIf="formControls['email'].errors['required']">
+                      Please enter email
+                    </div>
+                    <div *ngIf="formControls['email'].errors['maxlength']">
+                      Email only 50 allowed characters long.
+                    </div>
+                    <div *ngIf="formControls['email'].errors['email']">
+                      Please enter valid email
+                    </div>
+                  </mat-error>
+              </mat-form-field>
+          </div>
+
+          <div>
+              <mat-form-field class="w-100">
+                <mat-label>Password</mat-label>
+                  <input matInput type="password" name="password" formControlName="password">
+                  <mat-error *ngIf="formControls['password'].errors">
+                    <div *ngIf="formControls['password'].errors['required']">
+                      Please enter password
+                    </div>
+                    <div *ngIf="formControls['password'].errors['maxlength']">
+                      Password only 12 allowed characters long.
+                    </div>
+                  </mat-error>
+              </mat-form-field>
+          </div>
+
+          <div>
+              <mat-checkbox color="primary" name="remember" formControlName="remember">Remember</mat-checkbox>
+          </div>
+
+          <div>
+              <button mat-raised-button color="primary" class="w-100" type="submit" [disabled]="!loginForm.valid">Login</button>
+          </div>
+
+          <div class="footer">
+            <p> No account yet? <a (click)="onSignup()" style="cursor: pointer;">Register</a> </p>
+          </div>
+      </form>
+
+  </div>
+  </div>

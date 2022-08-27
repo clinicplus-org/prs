@@ -1,0 +1,85 @@
+<div class="signup-page">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <div class="content" *ngIf="!isLoading">
+          <form [formGroup]="registrationForm" (submit)="onSignup()" class="signup-form">
+            <div class="text-center">
+                <h2 class="app-name">Register</h2>
+                <p class="subheading">Please fill out all input.</p>
+            </div>
+
+            <div>
+                <mat-form-field class="w-100">
+                  <mat-label>First Name</mat-label>
+                    <input matInput formControlName="firstname">
+                    <mat-error *ngIf="formControls['firstname'].errors">
+                      <div *ngIf="formControls['firstname'].errors['required']">
+                        Please enter firstname
+                      </div>
+                      <div *ngIf="formControls['firstname'].errors['maxlength']">
+                        Firstname only 30 allowed characters long.
+                      </div>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="w-100">
+                  <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="lastname">
+                    <mat-error *ngIf="formControls['lastname'].errors">
+                      <div *ngIf="formControls['lastname'].errors['required']">
+                        Please enter lastname
+                      </div>
+                      <div *ngIf="formControls['lastname'].errors['maxlength']">
+                        Lastbane only 30 allowed characters long.
+                      </div>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="w-100">
+                  <mat-label>Email</mat-label>
+                    <input matInput formControlName="email">
+                    <mat-error *ngIf="formControls['email'].errors">
+                      <div *ngIf="formControls['email'].errors['required']">
+                        Please enter email
+                      </div>
+                      <div *ngIf="formControls['email'].errors['maxlength']">
+                        Email only 50 allowed characters long.
+                      </div>
+                      <div *ngIf="formControls['email'].errors['email']">
+                        Please enter valid email
+                      </div>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="w-100">
+                  <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password">
+                    <mat-error *ngIf="formControls['password'].errors">
+                      <div *ngIf="formControls['password'].errors['required']">
+                        Please enter password
+                      </div>
+                      <div *ngIf="formControls['password'].errors['maxlength']">
+                        Password only 12 allowed characters long.
+                      </div>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <button mat-raised-button color="primary" class="w-100" type="submit">Submit</button>
+            </div>
+
+            <div class="footer">
+                <p>Already have an account? <a (click)="onLogin()" style="cursor: pointer;">Login</a> </p>
+            </div>
+        </form>
+
+
+    </div>
+
+</div>

@@ -5,12 +5,16 @@ import { PageNotFoundComponent } from './views/page-not-found/page-not-found.com
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '',
+    redirectTo: 'auth',
     pathMatch: 'full'
   },
   {
     path: '',
     loadChildren: () => import('./views/layouts/guest/guest.module').then(m => m.GuestModule)
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: '#',
