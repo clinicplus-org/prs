@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth/auth.guard';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'auth',
+    redirectTo: 'app',
     pathMatch: 'full'
   },
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: '#',
+    path: 'app',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./views/layouts/main/main.module').then(m => m.MainModule)
   },
   {

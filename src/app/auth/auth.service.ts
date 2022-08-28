@@ -81,7 +81,7 @@ export class AuthService {
 
         this.saveAuthData(token, this.userId, this.userEmail);
         this.userService.get(response.userId).subscribe(userData => {
-          this.router.navigate(['/secure']);
+          this.router.navigate(['/app']);
         });
       }
     }, error => {
