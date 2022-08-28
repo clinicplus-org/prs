@@ -16,6 +16,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { ImportComponent } from './import/import.component';
 import { ExportComponent } from './export/export.component';
 import { PrintComponent } from './print/print.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { QrcodeReaderComponent } from './qrcode-reader/qrcode-reader.component';
+import { QrcodeWriterComponent } from './qrcode-writer/qrcode-writer.component';
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import { PrintComponent } from './print/print.component';
     ProfileComponent,
     ImportComponent,
     ExportComponent,
-    PrintComponent
+    PrintComponent,
+    DialogComponent,
+    QrcodeReaderComponent,
+    QrcodeWriterComponent
   ],
   imports: [
     CommonModule,
@@ -50,7 +56,10 @@ import { PrintComponent } from './print/print.component';
     ProfileComponent,
     ImportComponent,
     ExportComponent,
-    PrintComponent
+    PrintComponent,
+    DialogComponent,
+    QrcodeReaderComponent,
+    QrcodeWriterComponent
   ]
 })
 export class SharedModule { }

@@ -8,8 +8,6 @@ export interface User {
   updatedAt: Date;
   addresses: Address[];
   age: number;
-  publicKey: string;
-  privateKey: string;
   avatar?: string;
   // setting?: Settings[];
 }
