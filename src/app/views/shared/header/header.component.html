@@ -1,37 +1,21 @@
 <mat-toolbar color="primary">
-  <mat-toolbar-row>
-      <button mat-icon-button (click)="onToggleSideBar()">
-          <mat-icon>menu</mat-icon>
-      </button>
+  <button mat-icon-button (click)="onToggleSideBar()">
+    <mat-icon>menu</mat-icon>
+</button>
+  <span>Clinicplus</span>
+  <span class="spacer"></span>
 
-      <span> {{title}} </span>
+  <button mat-icon-button class="" aria-label="icon-button with notification icon" matTooltip="Notifications">
+    <mat-icon>notifications_none</mat-icon>
+  </button>
+  <button mat-icon-button class="" aria-label="icon-button with help icon" matTooltip="Help">
+   <mat-icon>help_outline</mat-icon>
+ </button>
+ <button mat-icon-button class="" aria-label="icon-button with settings icon" matTooltip="Setting">
+  <mat-icon>settings</mat-icon>
+</button>
+<button mat-icon-button class="" aria-label="icon-button with exit_to_app icon" matTooltip="Logout" (click)="onLogout()">
+  <mat-icon>exit_to_app</mat-icon>
+</button>
 
-      <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
-          <ul fxLayout="row" fxLayoutGap="20px">
-              <!-- <li>
-                <button mat-button matTooltip="{{ 'settings.language-tip' | translate }}">{{ 'settings.language-option.' + appLang | translate }}</button>
-              </li>
-              <li>
-                <button mat-icon-button matTooltip="{{ 'notifications.title' | translate }}">
-                    <mat-icon matBadge="0" [matBadgeHidden]="!showBadge" matBadgePosition="above after" matBadgeColor="warn">notifications_none</mat-icon>
-                </button>
-              </li> -->
-              <li>
-                  <button mat-icon-button matTooltip="Help">
-                      <mat-icon>help_outline</mat-icon>
-                  </button>
-              </li>
-              <li>
-                  <button mat-icon-button matTooltip="Settings">
-                    <mat-icon>settings</mat-icon>
-                </button>
-              </li>
-              <li>
-                  <button mat-icon-button matTooltip="Logout" (click)="onLogout()">
-                  <mat-icon>exit_to_app</mat-icon>
-                </button>
-              </li>
-          </ul>
-      </div>
-  </mat-toolbar-row>
-</mat-toolbar>
+ </mat-toolbar>

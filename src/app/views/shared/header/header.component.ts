@@ -1,4 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatDialogConfig } from '@angular/material/dialog';
+import { AuthService } from 'src/app/auth/auth.service';
+import { SettingService } from '../../private/setting/setting.service';
 
 @Component({
   selector: 'app-header',
@@ -10,11 +13,31 @@ export class HeaderComponent implements OnInit {
   @Output() logout = new EventEmitter<boolean>();
   @Input()
   isAuthenticated!: boolean;
-  title = 'web';
 
-  constructor() { }
+  setting: any;
+  userId: string | null;
 
-  ngOnInit() { }
+  isAuth = true;
+  showBadge: boolean;
+  isLoading: boolean;
+
+  constructor(
+    private settingService: SettingService,
+    private authService: AuthService
+  ) {
+    this.userId = this.authService.getUserId();
+    this.showBadge = false;
+    this.isLoading = true;
+  }
+
+  ngOnInit() {
+    this.settingService.getSetting(this.userId);
+    this.settingService.getSettingListener()
+    .subscribe((setting: any) => {
+      this.setting = setting;
+      this.isLoading = false;
+    });
+  }
 
   onToggleSideBar() {
     this.toggleSideBar.emit();
@@ -25,5 +48,7 @@ export class HeaderComponent implements OnInit {
     }, 300);
   }
 
-  onLogout() { }
+  onLogout() {
+    this.logout.emit(this.isAuth);
+  }
 }

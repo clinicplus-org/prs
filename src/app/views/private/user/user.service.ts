@@ -67,7 +67,7 @@ export class UserService {
     return this.usersSub.asObservable();
   }
 
-  get(userId: string) {
+  get(userId: string | null) {
     return this.http.get<any>(BACKEND_URL + '/' + userId);
   }
 

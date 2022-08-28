@@ -1,3 +1,26 @@
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .spacer {
   flex: 1;
+}
+
+mat-drawer {
+  width: 350px;
+}
+
+mat-drawer-container {
+  height: 100%;
+}
+
+mat-drawer-content {
+  padding: 20px;
+}
+
+.mat-drawer.mat-drawer-side {
+z-index: 1;
 }

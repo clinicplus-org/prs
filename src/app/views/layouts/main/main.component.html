@@ -1,20 +1,13 @@
+<app-header (toggleSideBar)="sideBarToggler($event)" (logout)="onLogout($event)"></app-header>
 
-<nav>
-  <mat-toolbar color="primary">
-    <span>My App</span>
-    <span class="spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-     <mat-icon>share</mat-icon>
-   </button>
-   </mat-toolbar>
-</nav>
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+        <app-sidebar></app-sidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
 
-<div class="content" role="main">
-
-  <router-outlet></router-outlet>
-
-</div>
+<app-footer></app-footer>
 
