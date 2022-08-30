@@ -129,8 +129,8 @@ export class PatientListComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-  filterLabel(labelId: Event) {
-    // this.getQuery(this.perPage, this.currentPage, labelId);
+  filterLabel(labelId: any) {
+    this.getQuery(this.perPage, this.currentPage, labelId);
   }
 
   ngAfterViewInit() {
@@ -214,10 +214,11 @@ export class PatientListComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   applyFilter(filterValue: KeyboardEvent) {
-    // this.dataSource.filter = filterValue.trim().toLowerCase();
-    // if (this.dataSource.paginator) {
-    //   this.dataSource.paginator.firstPage();
-    // }
+    const filterKey = (filterValue.target as HTMLInputElement).value;
+    this.dataSource.filter =  filterKey.toLowerCase()
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   setOwnerShip(data: any[]) {
